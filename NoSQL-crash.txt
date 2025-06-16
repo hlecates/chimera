@@ -1,0 +1,24 @@
+NoSQL Summary:
+Short for "Not Only SQL." Referring to non-relational databases, that store data in a non-tabular form, rather than a rule baased relational database. There are 5 types:
+
+Document Databses:
+    Used to store and query semi-structured data. Data is stored in JSON-like documents. easy to create and update applications without referencing a primary schema. 
+
+Key-Value Databases:
+    Simplest type. Data is stored in a key-value structure, where a unique key is paried with a value such as a string, number, boolean or complex object. Can use the key to retrieve or store its associated value. 
+
+Column-oriented Databases:
+    Store and read data in rows and organize in sets of columns. Column names and formatting in wide-column stores can vary from row to row. 
+
+Graph Databases:
+    Organize data as nodes in a graph, focusing on relationships between data elements. Connections between nodes are stored as first-class elements. 
+
+In-Memory Databases:
+    Store data in memory to provide ultra-low latency for real-time applications. 
+
+
+ACID:
+    Atomic --> All operations in a transaction succeed or the operation is rolled back
+    Consistent --> On the completion of a transaction, the database is structurally sound
+    Isolated --> Transactions do not contend with one another. Contentious access to data is moderated by the databsse so transactions appear sequentially
+    Durable --> The results of applying a transaction are permanent, even in the presence of a failure. 
