@@ -20,5 +20,5 @@ In-Memory Databases:
 ACID:
     Atomic --> All operations in a transaction succeed or the operation is rolled back
     Consistent --> On the completion of a transaction, the database is structurally sound
-    Isolated --> Transactions do not contend with one another. Contentious access to data is moderated by the databsse so transactions appear sequentially
+    Isolated --> Transactions do not contend with one another. Contentious access to data is moderated by the database so transactions appear sequentially
     Durable --> The results of applying a transaction are permanent, even in the presence of a failure. 
