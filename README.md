@@ -1,5 +1,7 @@
 # Chimera: Polyglot NoSQL Prototype
 
+![Chimera Logo](docs/Chimera-Logo.png)
+
 *Chimera* is a polyglot NoSQL database prototype that:
 
 * **Implements** the five canonical NoSQL data models (Key–Value, Document, Column-Family, Graph, Time-Series).
