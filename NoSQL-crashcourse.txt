@@ -5,7 +5,7 @@ Document Databses:
     Used to store and query semi-structured data. Data is stored in JSON-like documents. easy to create and update applications without referencing a primary schema. 
 
 Key-Value Databases:
-    Simplest type. Data is stored in a key-value structure, where a unique key is paried with a value such as a string, number, boolean or complex object. Can use the key to retrieve or store its associated value. 
+    Simplest type. Data is stored in a key-value structure, where a unique key is paired with a value such as a string, number, boolean or complex object. Can use the key to retrieve or store its associated value. 
 
 Column-oriented Databases:
     Store and read data in rows and organize in sets of columns. Column names and formatting in wide-column stores can vary from row to row. 
@@ -22,3 +22,6 @@ ACID:
     Consistent --> On the completion of a transaction, the database is structurally sound
     Isolated --> Transactions do not contend with one another. Contentious access to data is moderated by the database so transactions appear sequentially
     Durable --> The results of applying a transaction are permanent, even in the presence of a failure. 
+
+
+Write Ahead Logging + Snapshot:
