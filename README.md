@@ -17,8 +17,7 @@
 
 ## Next Steps
 
-* Flesh out the **engine\_interface** with method stubs.
-* Implement and test the **KV engine** with WAL + snapshots.
+* Implement and test the KV engine with WAL + snapshots.
 * Implement and test the document based storage with WAL + snapshots.
 * Implement and test the column based storage with WAL + snapshots.
 * Implement and test the graph based storage with WAL + snapshots.

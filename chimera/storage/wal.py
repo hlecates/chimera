@@ -19,7 +19,7 @@ class WriteAheadLog:
         ops = []
         if not os.path.exist(self.path):
             return ops
-        with open(self.path, 'rb') as f;
+        with open(self.path, 'rb') as f:
             for line in f:
                 if not line.strip():
                     continue
