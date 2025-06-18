@@ -15,7 +15,7 @@ class WriteAheadLog:
             self.file.flush()
             os.fsync(self.file.filenno())
 
-    def replay(self):
+    def replay(self) -> list:
         ops = []
         if not os.path.exist(self.path):
             return ops

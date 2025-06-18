@@ -5,8 +5,8 @@ import pickle
 import base64
 
 from storage.wal import WriteAheadLog
+from storage.snapshot import SnapShotManager
 from engine_interface import StorageEngineInterface
-
 
 
 class KeyValueEngine(StorageEngineInterface):
@@ -31,15 +31,36 @@ class KeyValueEngine(StorageEngineInterface):
         self.lock = threading.RLock()
 
         self.wal = WriteAheadLog(wal_path)
+        self.snapshot_mgr = SnapShotManager(snap_path)
+
 
     def startup(self):
-        pass
+        snapshot = self.snapshot_mgr.load('latest')
+        self.store = snapshot if snapshot else {}
+        ops = self.wal.replay()
+        for entry in ops:
+            op = entry.get('operation')
+            coll = entry.get('collection')
+            key = entry.get('key')
+            if op == 'PUT':
+                blob = base64.b64decode(entry.get('value'))
+                self.store.setdefault(coll, {})[key] = blob
+            elif op == 'DELETE':
+                if coll in self.store:
+                    self.store[coll].pop(key, None)
+        self.wal.rotate()
+        self.wal.__init__()
+
 
     def shutdown(self):
-        pass
+        with self.lock:
+            self.snapshot_mgr.create('latest', self.store)
+            self.wal.close()
+
 
     def recover(self):
         pass
+
 
     def _validate_collection_key(self, collection: str, key: str):
         if not isinstance(collection, str) or not collection:
@@ -65,11 +86,13 @@ class KeyValueEngine(StorageEngineInterface):
             self.wal.append(entry)
             self.store.setdefault(collection, {})[key] = value 
 
+
     def get(self, collection: str, key: str) -> bytes:
         self._validate_collection_key(collection, key)
 
         with self.lock:
             return self.store.get(collection, {}).get(key)
+
 
     def delete(self, collection: str, key: str):
         self._validate_collection_key(collection, key)
@@ -79,6 +102,7 @@ class KeyValueEngine(StorageEngineInterface):
         with self.lock:
             self.wal.append(entry)
             return self.store.get(collection, {}).pop(key, None) is not None
+
 
     def query(self, collection: str, filter: dict):
         raise NotImplementedError("Query not supported by this engine")
