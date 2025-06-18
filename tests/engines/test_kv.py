@@ -26,6 +26,10 @@ def test_put_get_delete(tmp_path):
 
     engine.shutdown()
 
+if __name__ == "__main__":
+    import sys
+    sys.exit(pytest.main([__file__]))
+
 
 
     

@@ -3,7 +3,7 @@ import os
 import json
 
 class WriteAheadLog:
-    def init__(self, path: str):
+    def __init__(self, path: str):
         self.path = path
         self.locak = threading.RLock()
         self.file = None
@@ -31,7 +31,7 @@ class WriteAheadLog:
             if self.file:
                 self.file.close()
             open(self.path, 'wb').close()
-            self.init()
+            self.__init__()
 
     def close(self):
         with self.lock:
