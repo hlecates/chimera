@@ -1,6 +1,8 @@
 # Chimera: Polyglot NoSQL Prototype
 
-![Chimera Logo](docs/Chimera-Logo.png)
+<p align="center">
+  <img src="docs/Chimera-Logo.png" alt="Chimera Logo" width="400"/>
+</p>
 
 *Chimera* is a polyglot NoSQL database prototype that:
 
