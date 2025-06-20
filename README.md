@@ -1,6 +1,8 @@
 # Chimera: Polyglot NoSQL Prototype
 
-![Chimera Logo](docs/Chimera-Logo.png)
+<p align="center">
+  <img src="docs/Chimera-Logo.png" alt="Chimera Logo" width="400"/>
+</p>
 
 *Chimera* is a polyglot NoSQL database prototype that:
 
@@ -17,13 +19,13 @@
 
 ## Next Steps
 
-* Implement and test the KV engine with WAL + snapshots.
-* Implement and test the document based storage with WAL + snapshots.
-* Implement and test the column based storage with WAL + snapshots.
-* Implement and test the graph based storage with WAL + snapshots.
-* Implement and test the time series based storage with WAL + snapshots.
-* Build the data profiler and basic heuristics.
-* Construct a frontend. 
+* [x] Implement and test the KV engine with WAL + snapshots.
+* [ ] Implement and test the document based storage with WAL + snapshots.
+* [ ] Implement and test the column based storage with WAL + snapshots.
+* [ ] Implement and test the graph based storage with WAL + snapshots.
+* [ ] Implement and test the time series based storage with WAL + snapshots.
+* [ ] Build the data profiler and basic heuristics.
+* [ ] Construct a frontend for data visualization. 
 
 ---
 
