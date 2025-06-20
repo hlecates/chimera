@@ -17,13 +17,13 @@
 
 ## Next Steps
 
-* Implement and test the KV engine with WAL + snapshots.
-* Implement and test the document based storage with WAL + snapshots.
-* Implement and test the column based storage with WAL + snapshots.
-* Implement and test the graph based storage with WAL + snapshots.
-* Implement and test the time series based storage with WAL + snapshots.
-* Build the data profiler and basic heuristics.
-* Construct a frontend. 
+* [x] Implement and test the KV engine with WAL + snapshots.
+* [ ] Implement and test the document based storage with WAL + snapshots.
+* [ ] Implement and test the column based storage with WAL + snapshots.
+* [ ] Implement and test the graph based storage with WAL + snapshots.
+* [ ] Implement and test the time series based storage with WAL + snapshots.
+* [ ] Build the data profiler and basic heuristics.
+* [ ] Construct a frontend for data visualization. 
 
 ---
 
