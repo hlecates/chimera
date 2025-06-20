@@ -7,9 +7,12 @@ src/ChimeraDB.egg-info/dependency_links.txt
 src/ChimeraDB.egg-info/top_level.txt
 src/ChimeraDB/chimera/__init__.py
 src/ChimeraDB/chimera/engines/__init__.py
+src/ChimeraDB/chimera/engines/document_engine.py
 src/ChimeraDB/chimera/engines/engine_interface.py
 src/ChimeraDB/chimera/engines/kv_engine.py
 src/ChimeraDB/chimera/storage/__init__.py
 src/ChimeraDB/chimera/storage/snapshot.py
 src/ChimeraDB/chimera/storage/wal.py
+tests/test_document.py
 tests/test_kv.py
+tests/test_snapshot.py

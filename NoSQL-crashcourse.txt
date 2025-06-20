@@ -4,6 +4,27 @@ Short for "Not Only SQL." Referring to non-relational databases, that store data
 Document Databses:
     Used to store and query semi-structured data. Data is stored in JSON-like documents. easy to create and update applications without referencing a primary schema. 
 
+    Let each document have its onw unique structure, represented as JSON, BSON, XML, or YAML
+
+    Core Model:
+        Document:
+            Self describing struture with named fields and values
+        Collection:
+            Grouping of documents, analgous to a table, but wihout a rigid schema
+        Database:
+            A namespace contaiing multiple collections
+
+        Since each document has its own schema, field names and types are be independent for each document
+
+    Storage/Indexing:
+        BSON vs JSON
+        Index Types:
+            Single field indexes for top level fields
+            Compound Indxes spanning multiple fields
+            Multikey indexes on array fileds indexing each array elem
+            Test indexes for full text search
+            Geospatial indexes for location qieres
+
 Key-Value (KV) Stores: kv_engine.py
 
     Simple key-value databse, which uses an associative array, ie a map or dictionary, where each key is associated with one value in a collection.

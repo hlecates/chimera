@@ -1,7 +1,4 @@
 import threading
-import os
-import json
-import pickle
 import base64
 
 from ChimeraDB.chimera.storage.wal import WriteAheadLog
@@ -49,7 +46,6 @@ class KVEngine(EngineInterface):
                 if coll in self.store:
                     self.store[coll].pop(key, None)
         self.wal.rotate()
-        self.wal.__init__()
 
 
     def shutdown(self):
@@ -59,7 +55,9 @@ class KVEngine(EngineInterface):
 
 
     def recover(self):
-        pass
+        # analagous to startup
+        with self.lock:
+            self.startup()
 
 
     def _validate_collection_key(self, collection: str, key: str):
