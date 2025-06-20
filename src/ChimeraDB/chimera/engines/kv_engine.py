@@ -4,12 +4,12 @@ import json
 import pickle
 import base64
 
-from storage.wal import WriteAheadLog
-from storage.snapshot import SnapShotManager
-from engine_interface import StorageEngineInterface
+from ChimeraDB.chimera.storage.wal import WriteAheadLog
+from ChimeraDB.chimera.storage.snapshot import SnapshotManager
+from ChimeraDB.chimera.engines.engine_interface import EngineInterface
 
 
-class KeyValueEngine(StorageEngineInterface):
+class KVEngine(EngineInterface):
     def __init__(
             self, 
             wal_path: str, 
@@ -31,7 +31,7 @@ class KeyValueEngine(StorageEngineInterface):
         self.lock = threading.RLock()
 
         self.wal = WriteAheadLog(wal_path)
-        self.snapshot_mgr = SnapShotManager(snap_path)
+        self.snapshot_mgr = SnapshotManager(snap_path)
 
 
     def startup(self):

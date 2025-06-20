@@ -2,10 +2,10 @@ import os
 import threading
 import pickle
 
-class SnapShotManager:
+class SnapshotManager:
     def __init__(self, path: str):
         self.base_path = path
-        self.lock = threading.Rlock()
+        self.lock = threading.RLock()
 
     def create(self, name: str, data: dict):
         tmp = f"{self.base_path}.{name}.tmp"

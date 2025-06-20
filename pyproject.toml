@@ -1,0 +1,24 @@
+[build-system]
+requires    = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "ChimeraDB"
+version         = "0.1.0"
+description     = "Polyglot NoSQL database prototype"
+readme          = "README.md"
+authors         = [
+  { name = "Henry LeCates", email = "hglecates@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies    = []
+
+[tool.setuptools.packages.find]
+where   = ["src"]
+include = ["ChimeraDB", "ChimeraDB.*"]
+
+[tool.pytest.ini_options]
+minversion   = "6.0"
+addopts      = "-ra -q"
+testpaths    = ["tests"]
+python_files = ["test_*.py"]

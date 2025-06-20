@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class StorageEngineInterface(ABC):
+class EngineInterface(ABC):
     @abstractmethod
     def startup(self):
         raise NotImplementedError
