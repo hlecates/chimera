@@ -54,6 +54,14 @@ Key-Value (KV) Stores: kv_engine.py
 Column-oriented Databases:
     Store and read data in rows and organize in sets of columns. Column names and formatting in wide-column stores can vary from row to row. 
 
+    Uses a keyspace, which is essentially equivalent to a schema in a relational model, The spae contains all the column families, or tables in the relationals models containg rows and columns
+
+    Each columne family consists of multiple rows, where each row can contain a differen number of columns in the other row
+
+    Each column is contained to its row, it doesnt span all rows like in a relational databse, Each column contains a name/value pair, with a timestamp
+
+    Performs well under aggregation queries
+
 Graph Databases:
     Organize data as nodes in a graph, focusing on relationships between data elements. Connections between nodes are stored as first-class elements. 
 
