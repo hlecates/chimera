@@ -28,6 +28,30 @@ This approach makes database technology more accessible to developers who may no
 - **Snapshot Management**: Point-in-time recovery capabilities
 - **Multi-Engine Persistence**: Each engine maintains its own WAL and snapshots
 
+## Architecture
+
+```
+ChimeraDB/
+├── src/ChimeraDB/chimera/
+│   ├── engines/           # Storage engines
+│   │   ├── kv_engine.py
+│   │   ├── document_engine.py
+│   │   ├── column_engine.py
+│   │   ├── graph_engine.py
+│   │   └── timeseries_engine.py
+│   ├── profiler/          # Intelligence layer
+│   │   ├── data_profiler.py
+│   │   ├── engine_selector.py
+│   │   └── metrics.py
+│   ├── storage/           # Durability layer
+│   │   ├── wal.py
+│   │   └── snapshot.py
+│   └── chimera_db.py      # Main API
+├── tests/                 # Test suite
+├── examples/              # Usage examples
+└── docs/                  # Documentation (e.g. logo)
+```
+
 ## Quick Start
 
 ### Installation
@@ -117,22 +141,6 @@ Get engine recommendation based on data characteristics and use case.
 #### `auto_store(collection: str, data: List[Dict], use_case: str) -> Dict`
 Automatically store data using the best engine for the use case.
 
-
-## Examples
-
-The `examples/` directory contains comprehensive demonstrations:
-
-- **`01_basic_usage.py`**: Introduction to core features
-- **`02_engine_comparison.py`**: Compare engine performance across data types
-- **`03_profiler_demo.py`**: Data profiling
-- **`04_performance_monitoring.py`**: Real-time performance tracking
-- **`05_real_world_scenarios.py`**: Practical use cases
-
-Run examples with:
-```bash
-python examples/01_basic_usage.py
-```
-
 ## Status
 
 - [ ] Enhanced ML-based engine selection
@@ -140,28 +148,5 @@ python examples/01_basic_usage.py
 - [ ] Distributed clustering support
 - [ ] Advanced query optimization
 
-## Architecture
-
-```
-ChimeraDB/
-├── src/ChimeraDB/chimera/
-│   ├── engines/           # Storage engines
-│   │   ├── kv_engine.py
-│   │   ├── document_engine.py
-│   │   ├── column_engine.py
-│   │   ├── graph_engine.py
-│   │   └── timeseries_engine.py
-│   ├── profiler/          # Intelligence layer
-│   │   ├── data_profiler.py
-│   │   ├── engine_selector.py
-│   │   └── metrics.py
-│   ├── storage/           # Durability layer
-│   │   ├── wal.py
-│   │   └── snapshot.py
-│   └── chimera_db.py      # Main API
-├── tests/                 # Test suite
-├── examples/              # Usage examples
-└── docs/                  # Documentation (e.g. logo)
-```
 
 
