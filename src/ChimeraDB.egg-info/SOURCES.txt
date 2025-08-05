@@ -10,6 +10,7 @@ src/ChimeraDB/chimera/engines/__init__.py
 src/ChimeraDB/chimera/engines/column_engine.py
 src/ChimeraDB/chimera/engines/document_engine.py
 src/ChimeraDB/chimera/engines/engine_interface.py
+src/ChimeraDB/chimera/engines/graph_engine.py
 src/ChimeraDB/chimera/engines/kv_engine.py
 src/ChimeraDB/chimera/storage/__init__.py
 src/ChimeraDB/chimera/storage/snapshot.py

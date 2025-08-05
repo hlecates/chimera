@@ -20,5 +20,5 @@ include = ["ChimeraDB", "ChimeraDB.*"]
 [tool.pytest.ini_options]
 minversion   = "6.0"
 addopts      = "-ra -q"
-testpaths    = ["tests/document", "tests/key-value", "tests/storage"]
+testpaths    = ["tests/document", "tests/key-value", "tests/storage", "tests/column", "tests/graph", "tests/timeseries"]
 python_files = ["test_*.py"]
