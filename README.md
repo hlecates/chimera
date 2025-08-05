@@ -1,4 +1,4 @@
-# <img src="docs/Chimera-Logo.png" alt="Chimera Logo" width="48" height="48" style="vertical-align: middle; margin-right: 12px;"> ChimeraDB: Polyglot NoSQL Database
+# <img src="docs/Chimera-Logo.png" alt="Chimera Logo" width="48" height="48" style="vertical-align: text-top; margin-right: 12px;"> ChimeraDB: Polyglot NoSQL Database
 
 *ChimeraDB* is a polyglot NoSQL database that implements the five standard  NoSQL databases with intelligent engine selection and performance monitoring.
 
