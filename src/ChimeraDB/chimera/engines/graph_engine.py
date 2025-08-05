@@ -321,7 +321,6 @@ class GraphEngine(EngineInterface):
             return []
         
         # Simple BFS path finding
-        visited = set()
         queue = [(start_node, [start_node])]
         paths = []
         
@@ -340,6 +339,9 @@ class GraphEngine(EngineInterface):
                     next_node = edge_data.get('to')
                     if next_node and next_node not in path:
                         queue.append((next_node, path + [next_node]))
+            else:
+                # Debug: current node not in adjacency
+                pass
         
         return [{'path': path} for path in paths]
 

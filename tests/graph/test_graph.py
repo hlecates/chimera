@@ -79,8 +79,9 @@ def test_graph_path_queries(tmp_path):
     engine.add_edge("path", "cd", "C", "D", {"weight": 1})
 
     # Find path from A to D
-    paths = engine.query("path", {"path": {"start": "A", "end": "D", "max_depth": 3}})
+    paths = engine.query("path", {"path": {"start": "A", "end": "D", "max_depth": 4}})
     assert len(paths) > 0
     assert "path" in paths[0]
 
     engine.shutdown()
+

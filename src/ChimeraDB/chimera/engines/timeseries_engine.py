@@ -238,7 +238,7 @@ class TimeSeriesEngine(EngineInterface):
     def _query_time_range(self, series: str, time_range: Dict[str, Any]) -> List[Dict[str, Any]]:
         start_time = time_range.get('start')
         end_time = time_range.get('end')
-        limit = time_range.get('limit', 1000)
+        limit = time_range.get('limit', 100000)  # Increased default limit
         
         points = []
         series_points = self.store.get(series, {}).get('points', {})
@@ -386,8 +386,8 @@ class TimeSeriesEngine(EngineInterface):
                 self._remove_from_indexes(series_name, timestamp, point_data)
                 del series_points[timestamp]
 
-    # Additional time-series specific methods
     def add_point(self, series: str, timestamp: int, value: float, tags: Dict[str, Any] = None) -> None:
+        """Add a data point to a time series"""
         point_data = {
             'timestamp': timestamp,
             'value': value,
@@ -398,6 +398,11 @@ class TimeSeriesEngine(EngineInterface):
         with self.lock:
             self._apply(op)
             self.wal.append(op)
+            
+            # Clean up old data after adding new data
+            self._cleanup_old_data()
+
+    # Additional time-series specific methods
 
     def get_series_metadata(self, series: str) -> Dict[str, Any]:
         with self.lock:

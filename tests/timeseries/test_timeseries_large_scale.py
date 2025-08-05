@@ -29,7 +29,7 @@ def test_large_scale_timeseries_operations(tmp_path, n_points):
     # Time range query
     mid_time = base_time + (n_points // 2) * 60
     half_points = engine.query("temperature", {"time_range": {"start": base_time, "end": mid_time}})
-    assert len(half_points) == n_points // 2
+    assert len(half_points) == (n_points // 2) + 1  # +1 because end time is inclusive
 
     # Tag-based query
     sensor_0_points = engine.query("temperature", {"tags": {"sensor": "sensor_0"}})
